@@ -10,12 +10,14 @@ def load_data(file_path):
 def output_animals(animals):
     output =''
     for animal in animals:
-        output += f"Name: {animal['name']}"
-        output += f"\nDiet: {animal['characteristics']['diet']}"
-        output += f"\nLocation: {", ".join(animal['locations'])}"
+        # append information to each string
+        output += '<li class="cards__item">'
+        output += f"Name: {animal['name']}<br/>\n"
+        output += f"Diet: {animal['characteristics']['diet']}<br/>\n"
+        output += f"Location: {", ".join(animal['locations'])}<br/>\n"
         if 'characteristics' in animal and 'type' in animal['characteristics']:
-            output += f"\nType: {animal['characteristics']['type']}"
-        output += "\n\n"
+            output += f"Type: {animal['characteristics']['type']}<br/>\n"
+        output += '</li>'
     return output
 
 
