@@ -12,11 +12,14 @@ def output_animals(animals):
     for animal in animals:
         # append information to each string
         output += '<li class="cards__item">'
-        output += f"Name: {animal['name']}<br/>\n"
+        output += f"<div class='card__title'>{animal['name']}</div>\n"
+        output += '<p class="card__text">'
         output += f"Diet: {animal['characteristics']['diet']}<br/>\n"
-        output += f"Location: {", ".join(animal['locations'])}<br/>\n"
+        if "locations" in animal and len(animal["locations"]) > 0:
+            output += f"Location: {animal['locations'][0]}<br/>\n"
         if 'characteristics' in animal and 'type' in animal['characteristics']:
             output += f"Type: {animal['characteristics']['type']}<br/>\n"
+        output += '</p>'
         output += '</li>'
     return output
 
